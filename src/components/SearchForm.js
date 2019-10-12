@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-export default function SearchForm() {
- 
+const SearchForm = () => {
   return (
     <section className="search-form">
-     // Add a search form here
+      // Add a search form here
     </section>
   );
-}
+};
+
+export default SearchForm;
