@@ -1,7 +1,15 @@
 import React from "react";
 
 const CharacterCard = ({ character }) => {
-  const {id, name, gender, species, status, image, origin.name};
+  const {
+    id,
+    name,
+    gender,
+    species,
+    status,
+    image,
+    origin.name
+  } = character;
   return (
     <div>
       <div className="media-image-container">
