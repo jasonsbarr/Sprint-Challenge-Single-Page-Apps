@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import CharacterList from "./../components/CharacterList";
 
 const Characters = () => {
   const [characters, setCharacters] = useState(null);
@@ -8,7 +9,7 @@ const Characters = () => {
   useEffect(() => {
     const getCharacters = () => {
       axios
-        .get("https://rickandmortyapi.com/api/character/")
+        .get(url)
         .then(response => {
           setCharacters(response.data);
         })
@@ -20,9 +21,7 @@ const Characters = () => {
     getCharacters();
   }, []);
 
-  return (
-    <pre>{JSON.stringify(characters, null, 2) || "Loading..."}</pre>
-  );
+  return <CharacterList characters={characters} />;
 };
 
 export default Characters;
