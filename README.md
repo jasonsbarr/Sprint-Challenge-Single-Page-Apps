@@ -79,14 +79,14 @@ Follow these steps to set up and work on your project:
         **Your finished project must include all of the following requirements:**
 
         _Display Data from a Server API_
-        - [ ] Fetch a list of characters from the Rick and Morty API's Characters endpoint
+        - [x] Fetch a list of characters from the Rick and Morty API's Characters endpoint
         *`https://rickandmortyapi.com/api/character/`* and render them to the screen.
-        - [ ] You must display at least one element for each character.
+        - [x] You must display at least one element for each character.
 
         _Add a Router to this application using [React
         Router](https://reacttraining.com/react-router/web/guides/quick-start)._
 
-        - [ ] Hook up the Welcome page(Home page) and a Characters page with React Router.
+        - [x] Hook up the Welcome page(Home page) and a Characters page with React Router.
         - [ ] Use a styling or component library for part of or all of your application. (Pick at least 1 of:
         [s](https://react-bootstrap.github.io/)tyled-components or Reactstrap).
 
