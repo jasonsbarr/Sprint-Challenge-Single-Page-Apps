@@ -20,9 +20,10 @@ export const useFetch = url => {
   const [data, setData] = useState({ pending: true });
 
   useEffect(() => {
-    axios.get(url)
-      .then(data => setData({data, pending: false}))
-      .catch(error => setData({error, pending: false}));
+    axios
+      .get(url)
+      .then(data => setData({ resolved: data, pending: false }))
+      .catch(error => setData({ rejected: error, pending: false }));
   }, [url]);
 
   return render(data);
