@@ -7,7 +7,7 @@ concrete project. This Sprint explored Single Page Applications, React Router I 
 
 ## Instructions
 
-**Read these instructions carefully. Understand exactly what is expected *before* starting this Sprint Challenge.**
+**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
 This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work
 independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and
@@ -31,41 +31,44 @@ party API service (based on the TV show [Rick and Morty](https://rickandmortyapi
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this
 document to include your answers after each question.
 
-- [x] Explain benefit(s) using `client-side routing`?
+-   [x] Explain benefit(s) using `client-side routing`?
 
 > Answer: Client-side routing lets you set routes and renders with greater dynamism and flexibility, including how you
-set the conditions for rendering and combine/compose routed components. In the case of React, the client-side rendering
-afforded by React Router lets you bring all the capabilities of React components to your routing setup.
+> set the conditions for rendering and combine/compose routed components. In the case of React, the client-side rendering
+> afforded by React Router lets you bring all the capabilities of React components to your routing setup.
 
 ## Project Set Up
 
 Follow these steps to set up and work on your project:
 
-- [x] Create a forked copy of this project.
-- [x] Add TL as collaborator on GitHub.
-- [x] Clone your OWN version of Repo (Not Lambda's by mistake!).
-- [x] Create a new Branch on the clone: `git checkout -b <firstName-lastName>`.
-    - [ ] Implement the project on this branch, committing changes regularly.
-    - [ ] Push commits: `git push origin <firstName-lastName>`.
-        - [x] **LOOK** at your project directory and notice it's just a plain ol' React App that we've built using
-        `create-react-app`.
-        - [x] **RUN** `yarn install` or `npm install` to retrieve the client-side dependencies.
-        - [x] **RUN** `yarn start` or `npm start` to fire up your React application.
+-   [x] Create a forked copy of this project.
+-   [x] Add TL as collaborator on GitHub.
+-   [x] Clone your OWN version of Repo (Not Lambda's by mistake!).
+-   [x] Create a new Branch on the clone: `git checkout -b <firstName-lastName>`.
 
-        ### Exceeded rate limits?
+    -   [ ] Implement the project on this branch, committing changes regularly.
+    -   [ ] Push commits: `git push origin <firstName-lastName>`.
 
-        <details>
-            <summary>⚠️ Expand for alternate API URL</summary>
+        -   [x] **LOOK** at your project directory and notice it's just a plain ol' React App that we've built using
+            `create-react-app`.
+        -   [x] **RUN** `yarn install` or `npm install` to retrieve the client-side dependencies.
+        -   [x] **RUN** `yarn start` or `npm start` to fire up your React application.
 
-            If the [main API service](https://rickandmortyapi.com/documentation) goes down, or you exceed rate limits,
-            try the following URL:
+            ### Exceeded rate limits?
 
-            **[Backup URL:](https://rick-api.herokuapp.com/api/)** `https://rick-api.herokuapp.com/api/`
+            <details>
+                <summary>⚠️ Expand for alternate API URL</summary>
 
-            You can still be locked out - watch your [chrome devtools' network
-            panel](https://developers.google.com/web/tools/chrome-devtools/network/reference) to make sure you aren't
-            making too many requests.
-        </details>
+                If the [main API service](https://rickandmortyapi.com/documentation) goes down, or you exceed rate limits,
+                try the following URL:
+
+                **[Backup URL:](https://rick-api.herokuapp.com/api/)** `https://rick-api.herokuapp.com/api/`
+
+                You can still be locked out - watch your [chrome devtools' network
+                panel](https://developers.google.com/web/tools/chrome-devtools/network/reference) to make sure you aren't
+                making too many requests.
+
+            </details>
 
 
         ## Minimum Viable Product (MVP)
