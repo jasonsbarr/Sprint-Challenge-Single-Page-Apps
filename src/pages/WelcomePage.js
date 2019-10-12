@@ -12,3 +12,5 @@ const WelcomePage = () => (
     </header>
   </section>
 );
+
+export default WelcomePage;
