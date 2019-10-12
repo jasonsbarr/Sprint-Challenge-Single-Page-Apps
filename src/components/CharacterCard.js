@@ -8,16 +8,12 @@ const CharacterCard = ({ character }) => {
     species,
     status,
     image,
-    origin.name
+    origin: { name: place },
   } = character;
   return (
     <div>
       <div className="media-image-container">
-        <img
-          className="media-image"
-          src={image}
-          alt={name}
-        />
+        <img className="media-image" src={image} alt={name} />
         <p className="media-image-caption">
           {`${name}, status: ${status}`}
         </p>
@@ -27,7 +23,7 @@ const CharacterCard = ({ character }) => {
         <p className="media-card-label">Known facts:</p>
         <ul className="media-card-list">
           <li className="media-card-list-item">{`Species: ${species}`}</li>
-          <li className="media-card-list-item">{`From: ${origin.name}`}</li>
+          <li className="media-card-list-item">{`From: ${place}`}</li>
           <li className="media-card-list-item">{`Gender: ${gender}`}</li>
           <li className="media-card-list-item">{`Status: ${status}`}</li>
         </ul>
