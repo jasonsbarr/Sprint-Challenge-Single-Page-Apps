@@ -1,9 +1,12 @@
 import React from "react";
+import CharacterCard from "./CharacterCard";
 
 const CharacterList = ({ characters }) => {
   return (
     <section className="character-list">
-      <pre>{JSON.stringify(characters, null, 2)}</pre>
+      {characters.map(character => (
+        <CharacterCard key={character.id} character={character} />
+      ))}
     </section>
   );
 };
