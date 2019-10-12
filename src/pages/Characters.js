@@ -11,7 +11,7 @@ const Characters = () => {
       axios
         .get(url)
         .then(response => {
-          setCharacters(response.data);
+          setCharacters(response.data.results);
         })
         .catch(error => {
           console.error("Server Error", error);
