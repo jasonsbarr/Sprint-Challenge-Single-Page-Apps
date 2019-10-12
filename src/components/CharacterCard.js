@@ -27,3 +27,5 @@ const CharacterCard = ({ character }) => {
     </div>
   );
 };
+
+export default CharacterCard;
