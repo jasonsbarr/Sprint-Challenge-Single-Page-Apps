@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const WelcomePage = () => (
   <section className="welcome-page">
@@ -10,6 +11,9 @@ const WelcomePage = () => (
         alt="rick"
       />
     </header>
+    <p>
+      <Link to="/characters">View Characters &rarr;</Link>
+    </p>
   </section>
 );
 
