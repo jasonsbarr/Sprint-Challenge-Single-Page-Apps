@@ -10,7 +10,7 @@ const StyledCard = styled.div`
   flex-wrap: wrap;
   font-family: "Courier New", Courier, monospace;
   justify-content: space-around;
-  margin-top: 16px;
+  margin: 16px auto 0;
   max-width: 632px;
   padding: 8px;
 
