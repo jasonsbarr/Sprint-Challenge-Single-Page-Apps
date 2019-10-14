@@ -1,0 +1,17 @@
+@font-face {
+  font-family: Xtreem;
+  src: url(./XtreemMedium.ttf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Xtreem;
+  src: url(./XtreemThin.ttf);
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: Xtreem;
+  src: url(./XtreemFat.ttf);
+  font-weight: bold;
+}

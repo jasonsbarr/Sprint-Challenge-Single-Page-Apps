@@ -1,33 +1,97 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import CharacterList from "./../components/CharacterList";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import CharacterList from "./../components/CharacterList";
+import SearchForm from "./../components/SearchForm";
+import TextButton from "../components/TextButton";
+import { useFetchGet } from "../hooks";
+
+const ErrorMessage = styled.p`
+  background-color: rgba(255, 99, 71, 0.5);
+  border: 3px dotted maroon;
+  border-radius: 3px;
+  color: maroon;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 18px;
+  line-height: 1.2;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 16px;
+  text-align: center;
+  width: 80%;
+`;
+
+const ButtonRow = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+`;
 
 const Characters = () => {
-  const [characters, setCharacters] = useState(null);
-  const url = "https://rickandmortyapi.com/api/character/";
+  const baseUrl = "https://rickandmortyapi.com/api/character";
+  const [url, setUrl] = useState(baseUrl);
+  const pages = { prev: "", next: "" };
+  const NavButton = ({ to, children }) => (
+    <TextButton to={to}>{children}</TextButton>
+  );
 
-  useEffect(() => {
-    const getCharacters = () => {
-      axios
-        .get(url)
-        .then(response => {
-          setCharacters(response.data.results);
-        })
-        .catch(error => {
-          console.error("Server Error", error);
-        });
-    };
+  const Buttons = () => (
+    <ButtonRow>
+      <TextButton
+        inactive={!pages.prev}
+        onClick={() => (pages.prev ? handlePage(pages.prev) : false)}
+      >
+        &lsaquo; Previous
+      </TextButton>
+      <NavButton to="/">
+        <span style={{ fontSize: "28px" }}>&#x2302;</span> Home
+      </NavButton>
+      <TextButton
+        inactive={!pages.next}
+        onClick={() => (pages.next ? handlePage(pages.next) : false)}
+      >
+        Next &rsaquo;
+      </TextButton>
+    </ButtonRow>
+  );
 
-    getCharacters();
-  }, []);
+  const CharactersHeader = () => (
+    <>
+      <SearchForm onSearchSubmit={handleCharacterSearch} />
+      <Buttons />
+    </>
+  );
+
+  const render = useFetchGet(url);
+
+  const handleCharacterSearch = ({ search }) => {
+    setUrl(`${baseUrl}/?name=${search.value}`);
+    search.value = "";
+  };
+
+  const handlePage = page => setUrl(page);
 
   return (
     <>
-      <CharacterList characters={characters} />
-      <p>
-        <Link to="/">&larr; Go back home</Link>
-      </p>
+      <CharactersHeader />
+      {render({
+        initial: () => <div>Preparing...</div>,
+        pending: () => <div>Loading...</div>,
+        error: err => (
+          <ErrorMessage>
+            Something is riggity riggity wrecked... Try again?
+            {console.error(err)}
+          </ErrorMessage>
+        ),
+        data: data => {
+          pages.prev = data.info.prev;
+          pages.next = data.info.next;
+          return <CharacterList characters={data.results} />;
+        },
+      })}
+      <Buttons />
     </>
   );
 };
