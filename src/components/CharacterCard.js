@@ -9,7 +9,7 @@ const StyledCard = styled.div`
   display: flex;
   flex-wrap: wrap;
   font-family: "Courier New", Courier, monospace;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 16px;
   max-width: 632px;
   padding: 8px;
@@ -50,7 +50,7 @@ const StyledCard = styled.div`
     list-style-type: none;
     margin-right: 24px;
     padding: 0;
-    width: 33%;
+    width: 200px;
 
     li {
       background-image: url(${bullet});
