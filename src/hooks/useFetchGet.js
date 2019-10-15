@@ -20,20 +20,14 @@ export const useFetchGet = (
     method = "json",
   } = {},
 ) => {
-  const [state, setState] = useState({
-    ...initialState,
-    initial: !!initialState,
-    pending: !initialState,
-    data: null,
-    error: null,
-  });
+  const [initial, setInitial] = useState(!!initialState);
+  const [pending, setPending] = useState(!initialState);
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setState(prevState => ({
-      ...prevState,
-      pending: true,
-      initial: initialPersist,
-    }));
+    setInitial(initialPersist);
+    setPending(true);
     fetch(url)
       .then(response => {
         return !response.ok
@@ -41,25 +35,21 @@ export const useFetchGet = (
           : response;
       })
       .then(response => response[method]())
-      .then(data =>
-        setState(prevState => ({
-          ...prevState,
-          data,
-          initial: false,
-          pending: false,
-        })),
-      )
-      .catch(error =>
-        setState(prevState => ({
-          ...prevState,
-          error,
-          initial: false,
-          pending: false,
-        })),
-      );
+      .then(data => {
+        setInitial(false);
+        setPending(false);
+        setError(null);
+        setData(data);
+      })
+      .catch(error => {
+        setInitial(false);
+        setPending(false);
+        setError(error);
+        setData(null);
+      });
   }, [initialPersist, method, url]);
 
-  return render(state);
+  return render({ initial, pending, error, data });
 };
 
 export default useFetchGet;
