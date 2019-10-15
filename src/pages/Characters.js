@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import CharacterList from "./../components/CharacterList";
@@ -30,7 +29,7 @@ const ButtonRow = styled.div`
 `;
 
 const Characters = () => {
-  const baseUrl = "https://rickandmortyapi.com/api/character";
+  const baseUrl = "https://rickandmortyapi.com/api/characterzzzzz";
   const [url, setUrl] = useState(baseUrl);
   const pages = { prev: "", next: "" };
   const NavButton = ({ to, children }) => (
@@ -40,6 +39,7 @@ const Characters = () => {
   const Buttons = () => (
     <ButtonRow>
       <TextButton
+        to=""
         inactive={!pages.prev}
         onClick={() => (pages.prev ? handlePage(pages.prev) : false)}
       >
@@ -49,6 +49,7 @@ const Characters = () => {
         <span style={{ fontSize: "28px" }}>&#x2302;</span> Home
       </NavButton>
       <TextButton
+        to=""
         inactive={!pages.next}
         onClick={() => (pages.next ? handlePage(pages.next) : false)}
       >
@@ -77,12 +78,11 @@ const Characters = () => {
     <>
       <CharactersHeader />
       {render({
-        initial: () => <div>Preparing...</div>,
+        // initial: () => <div>Preparing...</div>,
         pending: () => <div>Loading...</div>,
         error: err => (
           <ErrorMessage>
             Something is riggity riggity wrecked... Try again?
-            {console.error(err)}
           </ErrorMessage>
         ),
         data: data => {
