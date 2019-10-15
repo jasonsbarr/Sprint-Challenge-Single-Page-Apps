@@ -6,15 +6,12 @@ const ListContainer = styled.section`
   margin: 0 auto;
 `;
 
-const CharacterList = ({ characters }) => {
-  console.log(characters);
-  return (
-    <ListContainer className="character-list">
-      {characters.map(character => (
-        <CharacterCard key={character.id} character={character} />
-      ))}
-    </ListContainer>
-  );
-};
+const CharacterList = ({ characters }) => (
+  <ListContainer className="character-list">
+    {characters.map(character => (
+      <CharacterCard key={character.id} character={character} />
+    ))}
+  </ListContainer>
+);
 
 export default CharacterList;
