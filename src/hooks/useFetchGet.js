@@ -36,8 +36,9 @@ export const useFetchGet = (
     }));
     fetch(url)
       .then(response => {
-        if (!response.ok) return new Error(response.statusText);
-        return response;
+        return !response.ok
+          ? new Error(response.statusText)
+          : response;
       })
       .then(response => response[method]())
       .then(data =>
