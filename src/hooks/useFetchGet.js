@@ -31,6 +31,10 @@ export const useFetchGet = (
   useEffect(() => {
     setState({ ...state, pending: true, initial: initialPersist });
     fetch(url)
+      .then(response => {
+        if (!response.ok) return new Error(response.statusText);
+        return response;
+      })
       .then(response => response[method]())
       .then(data =>
         setState({ ...state, data, initial: false, pending: false }),
