@@ -9,6 +9,7 @@ main {
   min-height: 80vh;
   max-width: 680px;
   margin: 35px auto;
+  overflow: hidden;
   background: #fff;
   padding: 15px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
