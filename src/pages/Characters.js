@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import CharacterList from "./../components/CharacterList";
 import SearchForm from "./../components/SearchForm";
-import TextButton from "../components/TextButton";
+import TextButton, { TextLink } from "../components/TextButton";
 import { useFetchGet } from "../hooks";
 
 const ErrorMessage = styled.p`
@@ -37,23 +37,21 @@ const Characters = () => {
 
   const Buttons = () => (
     <ButtonRow>
-      <TextButton
-        to=""
-        inactive={!!pages.prev ? 1 : undefined}
+      <TextLink
+        inactive={!!pages.prev ? undefined : 1}
         onClick={() => (pages.prev ? handlePage(pages.prev) : false)}
       >
         &lsaquo; Previous
-      </TextButton>
+      </TextLink>
       <NavButton to="/">
         <span style={{ fontSize: "28px" }}>&#x2302;</span> Home
       </NavButton>
-      <TextButton
-        to=""
-        inactive={!!pages.next ? 1 : undefined}
+      <TextLink
+        inactive={!!pages.next ? undefined : 1}
         onClick={() => (pages.next ? handlePage(pages.next) : false)}
       >
         Next &rsaquo;
-      </TextButton>
+      </TextLink>
     </ButtonRow>
   );
 
