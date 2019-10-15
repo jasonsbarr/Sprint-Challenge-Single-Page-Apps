@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const TextButton = styled(Link)`
+const styles = `
+  background: none;
   border: 1px solid dodgerblue;
   border-radius: 3px;
   color: dodgerblue;
+  cursor: pointer;
   display: inline-block;
   font-size: 16px;
   line-height: 24px;
@@ -26,8 +28,17 @@ const TextButton = styled(Link)`
     font-size: 16px;
     transform: translateY(-2px);
   }
+`;
 
+const TextButton = styled(Link)`
+  ${styles}
+`;
+
+const TextLink = styled.button`
+  ${styles}
   ${props => props.inactive && `position: relative; right: -9999px`}
 `;
 
 export default TextButton;
+
+export { TextLink };
