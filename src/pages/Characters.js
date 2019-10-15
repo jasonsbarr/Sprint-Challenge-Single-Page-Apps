@@ -75,7 +75,6 @@ const Characters = () => {
     <>
       <CharactersHeader />
       {render({
-        // initial: () => <div>Hello</div>
         pending: () => <div>Loading...</div>,
         error: err => (
           <a>
