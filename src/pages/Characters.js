@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import CharacterList from "./../components/CharacterList";
 import SearchForm from "./../components/SearchForm";
 import TextButton, { TextLink } from "../components/TextButton";
@@ -13,9 +14,9 @@ const ErrorMessage = styled.p`
   font-family: "Courier New", Courier, monospace;
   font-size: 18px;
   line-height: 1.2;
-  margin: 0 auto;
+  margin: 8px auto;
   max-width: 800px;
-  padding: 16px;
+  padding: 12px;
   text-align: center;
   width: 80%;
 `;
@@ -80,6 +81,9 @@ const Characters = () => {
         error: err => (
           <ErrorMessage>
             Something is riggity riggity wrecked... Try again?
+            <span style={{ display: "block", margin: "8px auto 0" }}>
+              <Link to="/characters">Start Over</Link>
+            </span>
           </ErrorMessage>
         ),
         data: data => {
