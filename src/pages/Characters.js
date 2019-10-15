@@ -29,7 +29,7 @@ const ButtonRow = styled.div`
 `;
 
 const Characters = () => {
-  const baseUrl = "https://rickandmortyapi.com/api/characterzzzzz";
+  const baseUrl = "https://rickandmortyapi.com/api/character";
   const [url, setUrl] = useState(baseUrl);
   const pages = { prev: "", next: "" };
   const NavButton = ({ to, children }) => (
