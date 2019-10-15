@@ -43,10 +43,10 @@ const StyledForm = styled.form`
 `;
 
 const SearchForm = ({ onSearchSubmit }) => {
-  const [val, setVal] = useState({ searchField: "" });
+  const [field, setField] = useState("");
 
   const handleChange = event => {
-    setVal({ searchField: event.target.value });
+    setField(event.target.value);
   };
 
   const handleSearchSubmit = event => {
@@ -67,6 +67,7 @@ const SearchForm = ({ onSearchSubmit }) => {
           className="search-field"
           placeholder="Search by name here..."
           onChange={handleChange}
+          value={field}
           autoFocus
         />
         <button type="submit" className="search-button">
