@@ -10,7 +10,7 @@ import { renderAsync as render } from "./utils";
  * @param {Object} [args.initialState=null] - state to initialize prior to fetch call
  * @param {Boolean} [args.initialPersist=false] - whether initial state should be rendered while Promise is pending
  * @param {String} [args.method="json"] - response object method
- * @returns {Function} - partially applied function that renders component once Promise is settled
+ * @returns {Object}
  */
 export const useFetchGet = (
   url,
