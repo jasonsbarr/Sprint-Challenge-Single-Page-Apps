@@ -40,7 +40,7 @@ const Characters = () => {
     <ButtonRow>
       <TextButton
         to=""
-        inactive={!pages.prev}
+        inactive={!!pages.prev ? 1 : undefined}
         onClick={() => (pages.prev ? handlePage(pages.prev) : false)}
       >
         &lsaquo; Previous
@@ -50,7 +50,7 @@ const Characters = () => {
       </NavButton>
       <TextButton
         to=""
-        inactive={!pages.next}
+        inactive={!!pages.next ? 1 : undefined}
         onClick={() => (pages.next ? handlePage(pages.next) : false)}
       >
         Next &rsaquo;
