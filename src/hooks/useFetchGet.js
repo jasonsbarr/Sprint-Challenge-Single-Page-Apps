@@ -29,7 +29,11 @@ export const useFetchGet = (
   });
 
   useEffect(() => {
-    setState({ ...state, pending: true, initial: initialPersist });
+    setState(prevState => ({
+      ...prevState,
+      pending: true,
+      initial: initialPersist,
+    }));
     fetch(url)
       .then(response => {
         if (!response.ok) return new Error(response.statusText);
@@ -37,10 +41,20 @@ export const useFetchGet = (
       })
       .then(response => response[method]())
       .then(data =>
-        setState({ ...state, data, initial: false, pending: false }),
+        setState(prevState => ({
+          ...prevState,
+          data,
+          initial: false,
+          pending: false,
+        })),
       )
       .catch(error =>
-        setState({ ...state, error, initial: false, pending: false }),
+        setState(prevState => ({
+          ...prevState,
+          error,
+          initial: false,
+          pending: false,
+        })),
       );
   }, [initialPersist, method, url]);
 
