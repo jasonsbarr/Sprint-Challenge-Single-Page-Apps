@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import CharacterList from "./../components/CharacterList";
 import SearchForm from "./../components/SearchForm";
 import TextButton, { TextLink } from "../components/TextButton";
@@ -76,15 +75,15 @@ const Characters = () => {
     <>
       <CharactersHeader />
       {render({
-        // initial: () => <div>Preparing...</div>,
+        // initial: () => <div>Hello</div>
         pending: () => <div>Loading...</div>,
         error: err => (
-          <ErrorMessage>
+          <a>
             Something is riggity riggity wrecked... Try again?
             <span style={{ display: "block", margin: "8px auto 0" }}>
-              <Link to="/characters">Start Over</Link>
+              <a href="/characters">Start Over</a>
             </span>
-          </ErrorMessage>
+          </a>
         ),
         data: data => {
           pages.prev = data.info.prev;
