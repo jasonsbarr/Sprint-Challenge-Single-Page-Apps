@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import styled from "styled-components";
 import CharacterList from "./../components/CharacterList";
 import SearchForm from "./../components/SearchForm";
