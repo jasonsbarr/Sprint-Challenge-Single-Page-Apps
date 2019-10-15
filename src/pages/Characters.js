@@ -77,12 +77,12 @@ const Characters = () => {
       {render({
         pending: () => <div>Loading...</div>,
         error: err => (
-          <a>
+          <ErrorMessage>
             Something is riggity riggity wrecked... Try again?
             <span style={{ display: "block", margin: "8px auto 0" }}>
               <a href="/characters">Start Over</a>
             </span>
-          </a>
+          </ErrorMessage>
         ),
         data: data => {
           pages.prev = data.info.prev;
